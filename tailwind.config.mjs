@@ -6,11 +6,26 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["PP Neue Montreal", ...defaultTheme.fontFamily.sans],
-      // serif: ["PP Pangaia", ...defaultTheme.fontFamily.serif],
+      sans: ["PP Telegraf", ...defaultTheme.fontFamily.sans],
+      serif: ["PP Acma", ...defaultTheme.fontFamily.serif],
+      aside: ["PP Neue Montreal"],
     },
     fontMetrics: {
       sans: {
+        capHeight: 665,
+        ascent: 965,
+        descent: -300,
+        lineGap: 0,
+        unitsPerEm: 1000,
+      },
+      serif: {
+        capHeight: 780,
+        ascent: 1032,
+        descent: -480,
+        lineGap: 0,
+        unitsPerEm: 1000,
+      },
+      aside: {
         capHeight: 715,
         ascent: 958,
         descent: -242,
