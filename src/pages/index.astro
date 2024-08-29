@@ -13,49 +13,20 @@ const messages = await getCollection("messages");
     >
       <div class="flex flex-col gap-8">
         <p
-          class="font-serif text-[200px] leading-normal capsize transform -translate-x-8"
+          class="font-serif text-[12.5vw] leading-normal capsize transform -translate-x-8"
         >
           Galerie
         </p>
-        <p class="font-serif text-[132px] leading-normal capsize">du Marcus</p>
+        <p class="font-serif text-[8.25vw] leading-normal capsize">du Marcus</p>
       </div>
-      <p class="font-sans text-2xl capsize">
-        You are warmly invited to a special exhibition showcasing some of SD4’s
-        favourite moments captured through the lens, eyes and very big heart of
+      <p class="font-sans text-3xl capsize">
+        Welcome to a special exhibition showcasing some of SD4’s favourite
+        moments captured through the lens, eyes, hands and very big heart of
         Marcus!
       </p>
     </div>
     <div class="flex justify-between items-center">
-      {
-        messages.map((message, idx) => (
-          <Frame
-            author={message.data.author}
-            imagePath={message.data.imagePath}
-            contents={message.body}
-            index={idx}
-          />
-        ))
-      }
-      {
-        messages.map((message, idx) => (
-          <Frame
-            author={message.data.author}
-            imagePath={message.data.imagePath}
-            contents={message.body}
-            index={idx}
-          />
-        ))
-      }
-      {
-        messages.map((message, idx) => (
-          <Frame
-            author={message.data.author}
-            imagePath={message.data.imagePath}
-            contents={message.body}
-            index={idx}
-          />
-        ))
-      }
+      {messages.map((message, idx) => <Frame message={message} index={idx} />)}
     </div>
   </main>
 </Layout>

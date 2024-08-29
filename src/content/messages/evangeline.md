@@ -1,10 +1,10 @@
 ---
-author: Creighton
-title: Creighton Catching Food with Mouth
+author: Evangeline
+title: Evange Showing Off Pizza
 image:
   {
-    path: /src/assets/img-2.jpg,
-    properties: { focalLength: 47, aperture: 8.0, shutterSpeed: 1/160 },
+    path: /src/assets/img-3.jpg,
+    properties: { focalLength: 15, aperture: 1.7, shutterSpeed: 1/80 },
   }
 ---
 
