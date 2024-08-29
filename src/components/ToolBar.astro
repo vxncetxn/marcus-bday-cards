@@ -21,7 +21,7 @@ const { messagesCount } = Astro.props;
   <button class="px-12 py-8 border-r border-stone-700"
     ><Icon name="camera" class="size-20" />
   </button>
-  <button class="px-12 py-8 border-r border-stone-700"
+  <button id="expand-button" class="px-12 py-8 border-r border-stone-700"
     ><Icon name="expand" class="size-20" />
   </button>
   <button id="next-button" class="px-20 py-8">
@@ -86,7 +86,7 @@ const { messagesCount } = Astro.props;
     }
   });
 
-  // Add event listeners for back and next buttons based on observation state
+  // Add event listeners to back and next buttons
   const backButton = document.getElementById("back-button");
   const nextButton = document.getElementById("next-button");
   backButton?.addEventListener("click", () => {
@@ -104,5 +104,19 @@ const { messagesCount } = Astro.props;
     exhibitTargets[$currentExhibitIdx.get() + 1]?.scrollIntoView({
       behavior: "smooth",
     });
+  });
+
+  // Add event listener to expand button for fullscreen
+  const expandButton = document.getElementById("expand-button");
+  expandButton?.addEventListener("click", () => {
+    const root = document.querySelector("html");
+
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      if (root?.requestFullscreen) {
+        root.requestFullscreen();
+      }
+    }
   });
 </script>
