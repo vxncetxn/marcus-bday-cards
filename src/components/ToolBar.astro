@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 
+import cameraShutter from "../../public/camera-shutter.mp3";
+
 interface Props {
   messagesCount: number;
 }
@@ -30,10 +32,21 @@ const { messagesCount } = Astro.props;
     </div>
   </button>
 </div>
+<audio id="flash-audio" src={cameraShutter}></audio>
+<div
+  id="flash"
+  class="fixed left-0 top-0 bg-white w-screen h-screen z-50 opacity-0 transform scale-0"
+>
+</div>
 
 <style>
   .toolbar-shown {
     transform: translateY(50%);
+  }
+
+  .flash-shown {
+    opacity: 1;
+    transform: scale(1);
   }
 </style>
 
@@ -47,15 +60,13 @@ const { messagesCount } = Astro.props;
 
   // Observation for Intro
   const introObserverCallback = (entries: IntersectionObserverEntry[]) => {
-    if (toolBar) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          toolBar.classList.remove("toolbar-shown");
-        } else {
-          toolBar.classList.add("toolbar-shown");
-        }
-      });
-    }
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        toolBar?.classList.remove("toolbar-shown");
+      } else {
+        toolBar?.classList.add("toolbar-shown");
+      }
+    });
   };
   const introObserver = new IntersectionObserver(introObserverCallback, {
     threshold: 0.5,
@@ -113,9 +124,21 @@ const { messagesCount } = Astro.props;
   cameraButton?.addEventListener("click", () => {
     const currentExhibitIdx = $currentExhibitIdx.get();
     const exhibit = document.getElementById(`exhibit-${currentExhibitIdx}`);
+    const flash = document.getElementById("flash");
+    const flashAudio = document.getElementById(
+      "flash-audio",
+    ) as HTMLAudioElement | null;
 
     if (exhibit) {
-      toJpeg(exhibit).then(function (dataUrl) {
+      flash?.classList.add("flash-shown");
+      flashAudio?.play();
+      setTimeout(() => {
+        flash?.classList.remove("flash-shown");
+      }, 100);
+
+      toJpeg(exhibit, {
+        includeQueryParams: true,
+      }).then(function (dataUrl) {
         var link = document.createElement("a");
         link.download = `Exhibit-${currentExhibitIdx + 1}.jpeg`;
         link.href = dataUrl;
