@@ -15,7 +15,7 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
   <main class="h-screen flex justify-start items-center relative">
     <div
       id="intro"
-      class="w-1/2 shrink-0 snap-start h-screen flex flex-col justify-center p-[5vw] text-stone-800"
+      class="w-1/2 shrink-0 snap-start h-screen flex flex-col justify-center px-[5vw] text-stone-800"
     >
       <div class="flex flex-col gap-8">
         <p
@@ -25,14 +25,14 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
         </p>
         <p class="font-serif text-[8.25vw] leading-normal capsize">du Marcus</p>
       </div>
-      <p class="font-sans text-3xl capsize mt-48">
+      <p class="font-sans text-2xl capsize mt-[3.5rem]">
         Presenting <span class="italic">SD4LOVESYOU</span> — An exclusive photo exhibition
         celebrating some of SD4’s favourite moments captured through the lens, eyes,
         hands and very big heart of Marcus!
       </p>
       <button
         id="enter-button"
-        class="mt-80 bg-stone-800 text-white font-aside text-xl capsize self-start px-32 py-8 rounded-lg flex items-center gap-8"
+        class="mt-[5.5rem] bg-stone-800 text-stone-100 font-aside text-xl capsize self-start px-32 py-8 rounded-lg flex items-center gap-8"
         >Enter
         <Icon name="arrow-right" />
       </button>

@@ -11,24 +11,22 @@ const { messagesCount } = Astro.props;
 <div
   data-messages-count={messagesCount}
   id="tool-bar"
-  class="fixed right-40 top-0 transform -translate-y-full flex bg-stone-800 opacity-10 rounded-xl px-16 text-white font-aside text-xs hover:opacity-100 z-50 transition-all"
+  class="fixed right-40 top-0 transform -translate-y-full flex bg-stone-800 opacity-10 rounded-xl text-stone-100 font-aside text-xs hover:opacity-100 z-50 transition-all"
 >
-  <button id="previous-button" class="w-80 border-r border-stone-700 py-8">
-    <div class="flex flex-col justify-between">
-      <p class="self-start uppercase">Previous</p>
-      <Icon name="arrow-left" class="size-20" />
+  <button id="back-button" class="px-20 border-r border-stone-700 py-8">
+    <div class="flex justify-center items-center">
+      <p class="uppercase">Back</p>
     </div>
   </button>
-  <button class="px-16 py-8 border-r border-stone-700"
+  <button class="px-12 py-8 border-r border-stone-700"
     ><Icon name="camera" class="size-20" />
   </button>
-  <button class="px-16 py-8 border-r border-stone-700"
+  <button class="px-12 py-8 border-r border-stone-700"
     ><Icon name="expand" class="size-20" />
   </button>
-  <button id="next-button" class="w-80 py-8">
-    <div class="flex flex-col justify-between">
-      <p class="self-end uppercase">Next</p>
-      <Icon name="arrow-right" class="size-20 self-end" />
+  <button id="next-button" class="px-20 py-8">
+    <div class="flex justify-center items-center">
+      <p class="uppercase">Next</p>
     </div>
   </button>
 </div>
@@ -88,10 +86,10 @@ const { messagesCount } = Astro.props;
     }
   });
 
-  // Add event listeners for previous and next buttons based on observation state
-  const previousButton = document.getElementById("previous-button");
+  // Add event listeners for back and next buttons based on observation state
+  const backButton = document.getElementById("back-button");
   const nextButton = document.getElementById("next-button");
-  previousButton?.addEventListener("click", () => {
+  backButton?.addEventListener("click", () => {
     const currentExhibitIdx = $currentExhibitIdx.get();
 
     if (currentExhibitIdx === 0) {
