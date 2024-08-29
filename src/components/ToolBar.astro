@@ -18,7 +18,7 @@ const { messagesCount } = Astro.props;
       <p class="uppercase">Back</p>
     </div>
   </button>
-  <button class="px-12 py-8 border-r border-stone-700"
+  <button id="camera-button" class="px-12 py-8 border-r border-stone-700"
     ><Icon name="camera" class="size-20" />
   </button>
   <button id="expand-button" class="px-12 py-8 border-r border-stone-700"
@@ -38,6 +38,8 @@ const { messagesCount } = Astro.props;
 </style>
 
 <script>
+  import { toJpeg } from "html-to-image";
+
   import { $currentExhibitIdx } from "../currentExhibitIdx";
 
   const toolBar = document.getElementById("tool-bar");
@@ -104,6 +106,22 @@ const { messagesCount } = Astro.props;
     exhibitTargets[$currentExhibitIdx.get() + 1]?.scrollIntoView({
       behavior: "smooth",
     });
+  });
+
+  // Add event listener to camera button for screenshots
+  const cameraButton = document.getElementById("camera-button");
+  cameraButton?.addEventListener("click", () => {
+    const currentExhibitIdx = $currentExhibitIdx.get();
+    const exhibit = document.getElementById(`exhibit-${currentExhibitIdx}`);
+
+    if (exhibit) {
+      toJpeg(exhibit).then(function (dataUrl) {
+        var link = document.createElement("a");
+        link.download = `Exhibit-${currentExhibitIdx + 1}.jpeg`;
+        link.href = dataUrl;
+        link.click();
+      });
+    }
   });
 
   // Add event listener to expand button for fullscreen

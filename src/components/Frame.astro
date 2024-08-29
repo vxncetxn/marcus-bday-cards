@@ -2,7 +2,7 @@
 import type { ImageMetadata } from "astro";
 import type { CollectionEntry } from "astro:content";
 
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 
 import Label from "../components/Label.astro";
 
@@ -21,17 +21,15 @@ if (!images[message.data.image.path])
   );
 ---
 
-<article id={`exhibit-${index}`} class="snap-center">
+<article id={`exhibit-${index}`} class="snap-center bg-stone-200">
   <div class="h-screen w-screen flex justify-center items-center">
     <figure
-      class={`relative ${message.data.image.properties.isPortrait ? "w-[20vw]" : "w-[30vw]"}`}
+      class={`relative z-40 ${message.data.image.properties.isPortrait ? "w-[20vw]" : "w-[30vw]"}`}
     >
-      <Picture
-        class="card-back-img"
+      <Image
         src={images[message.data.image.path]()}
-        formats={["avif", "webp"]}
+        alt={message.data.title}
         densities={[1, 1.5, 2]}
-        alt=""
         loading="eager"
       />
       <div
@@ -119,13 +117,3 @@ if (!images[message.data.image.path])
     box-shadow: inset 0px 0.3em 0.1em rgba(0, 0, 0, 0.2);
   }
 </style>
-
-<script>
-  // const cards = document.querySelectorAll("article");
-  //
-  // cards.forEach((card) => {
-  //     card.addEventListener("click", () =>
-  //         card.firstElementChild?.classList.toggle("rotate"),
-  //     );
-  // });
-</script>
