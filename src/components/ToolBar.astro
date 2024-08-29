@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+  id="tool-bar"
+  class="fixed right-40 top-0 transform -translate-y-full flex bg-stone-800 opacity-10 rounded-xl px-16 text-white font-aside text-xs hover:opacity-100 z-50 transition-all"
+>
+  <button class="w-120 border-r border-stone-700 py-8">
+    <div class="flex flex-col justify-between">
+      <p class="self-start uppercase">Previous Exhibit</p>
+      <Icon name="arrow-left" class="size-20" />
+    </div>
+  </button>
+  <button class="px-16 py-8 border-r border-stone-700"
+    ><Icon name="camera" class="size-20" />
+  </button>
+  <button class="px-16 py-8 border-r border-stone-700"
+    ><Icon name="expand" class="size-20" />
+  </button>
+  <button class="w-120 py-8">
+    <div class="flex flex-col justify-between">
+      <p class="self-end uppercase">Next Exhibit</p>
+      <Icon name="arrow-right" class="size-20 self-end" />
+    </div>
+  </button>
+</div>
+
+<style>
+  .toolbar-shown {
+    transform: translateY(50%);
+  }
+</style>
+
+<script>
+  const toolBar = document.getElementById("tool-bar");
+  const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    if (toolBar) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          toolBar.classList.remove("toolbar-shown");
+        } else {
+          toolBar.classList.add("toolbar-shown");
+        }
+      });
+    }
+  };
+  const observer = new IntersectionObserver(observerCallback, {
+    threshold: 0.5,
+  });
+  const target = document.getElementById("intro");
+
+  if (target) {
+    observer.observe(target);
+  }
+</script>
