@@ -4,7 +4,13 @@ title: Amanda Eating Tomato
 image:
   {
     path: /src/assets/img-1.jpg,
-    properties: { focalLength: 15, aperture: 2.8, shutterSpeed: 1/160 },
+    properties:
+      {
+        focalLength: 15,
+        aperture: 2.8,
+        shutterSpeed: 1/160,
+        isPortrait: false,
+      },
   }
 ---
 

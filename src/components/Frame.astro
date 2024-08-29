@@ -22,7 +22,9 @@ if (!images[message.data.image.path])
 
 <article class="snap-center">
   <div class="h-screen w-screen flex justify-center items-center">
-    <figure>
+    <figure
+      class={`relative ${message.data.image.properties.isPortrait ? "w-[20vw]" : "w-[30vw]"}`}
+    >
       <Picture
         class="card-back-img"
         src={images[message.data.image.path]()}
@@ -40,12 +42,6 @@ if (!images[message.data.image.path])
 </article>
 
 <style>
-  figure {
-    position: relative;
-    display: block;
-    width: 20vw;
-  }
-
   figure:before {
     content: "";
     position: absolute;

@@ -1,11 +1,16 @@
 ---
-author: Creighton
-title: Creighton Catching Food with Mouth
+author: Rachael
+title: Rachael's Graduation
 image:
   {
-    path: /src/assets/img-2.jpg,
+    path: /src/assets/img-4.jpg,
     properties:
-      { focalLength: 47, aperture: 8.0, shutterSpeed: 1/160, isPortrait: true },
+      {
+        focalLength: 25,
+        aperture: 1.8,
+        shutterSpeed: 1/4000,
+        isPortrait: true,
+      },
   }
 ---
 

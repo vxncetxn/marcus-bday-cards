@@ -1,11 +1,11 @@
 ---
-author: Creighton
-title: Creighton Catching Food with Mouth
+author: Ben
+title: Ben Sitting Like a Boss
 image:
   {
-    path: /src/assets/img-2.jpg,
+    path: /src/assets/img-5.jpg,
     properties:
-      { focalLength: 47, aperture: 8.0, shutterSpeed: 1/160, isPortrait: true },
+      { focalLength: 15, aperture: 4, shutterSpeed: 1/160, isPortrait: false },
   }
 ---
 

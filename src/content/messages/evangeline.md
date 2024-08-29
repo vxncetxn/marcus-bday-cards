@@ -4,7 +4,8 @@ title: Evange Showing Off Pizza
 image:
   {
     path: /src/assets/img-3.jpg,
-    properties: { focalLength: 15, aperture: 1.7, shutterSpeed: 1/80 },
+    properties:
+      { focalLength: 15, aperture: 1.7, shutterSpeed: 1/80, isPortrait: false },
   }
 ---
 

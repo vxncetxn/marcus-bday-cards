@@ -11,6 +11,7 @@ const messages = defineCollection({
         focalLength: z.number(),
         aperture: z.number(),
         shutterSpeed: z.string(),
+        isPortrait: z.boolean(),
       }),
     }),
   }),
