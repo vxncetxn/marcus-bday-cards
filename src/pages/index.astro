@@ -40,7 +40,7 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
     <div class="flex justify-between items-center">
       {messages.map((message, idx) => <Frame message={message} index={idx} />)}
     </div>
-    <ToolBar />
+    <ToolBar messagesCount={messages.length} />
   </main>
 </Layout>
 
