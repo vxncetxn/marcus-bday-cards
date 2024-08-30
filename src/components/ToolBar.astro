@@ -51,12 +51,14 @@ const { messagesCount } = Astro.props;
 </style>
 
 <script>
-  import { toJpeg } from "html-to-image";
+  import { domToJpeg } from "modern-screenshot";
 
+  import { createContext, updateContext } from "../utils/modern-screenshot";
   import { $currentExhibitIdx } from "../currentExhibitIdx";
 
   const toolBar = document.getElementById("tool-bar");
   const messagesCount = toolBar?.dataset.messagesCount;
+  const context = await createContext();
 
   // Observation for Intro
   const introObserverCallback = (entries: IntersectionObserverEntry[]) => {
@@ -121,29 +123,27 @@ const { messagesCount } = Astro.props;
 
   // Add event listener to camera button for screenshots
   const cameraButton = document.getElementById("camera-button");
-  cameraButton?.addEventListener("click", () => {
+  cameraButton?.addEventListener("click", async () => {
     const currentExhibitIdx = $currentExhibitIdx.get();
     const exhibit = document.getElementById(`exhibit-${currentExhibitIdx}`);
     const flash = document.getElementById("flash");
     const flashAudio = document.getElementById(
       "flash-audio",
     ) as HTMLAudioElement | null;
+    if (context && exhibit) {
+      const updatedContext = updateContext(context, exhibit);
 
-    if (exhibit) {
       flash?.classList.add("flash-shown");
       flashAudio?.play();
       setTimeout(() => {
         flash?.classList.remove("flash-shown");
       }, 100);
 
-      toJpeg(exhibit, {
-        includeQueryParams: true,
-      }).then(function (dataUrl) {
-        var link = document.createElement("a");
-        link.download = `Exhibit-${currentExhibitIdx + 1}.jpeg`;
-        link.href = dataUrl;
-        link.click();
-      });
+      const dataURl = await domToJpeg(updatedContext);
+      var link = document.createElement("a");
+      link.download = `Exhibit-${currentExhibitIdx + 1}.jpeg`;
+      link.href = dataURl;
+      link.click();
     }
   });
 
