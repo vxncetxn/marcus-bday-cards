@@ -4,7 +4,11 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        noise: "url('/noise-light.png')",
+      },
+    },
     fontFamily: {
       sans: ["PP Telegraf", ...defaultTheme.fontFamily.sans],
       serif: ["PP Acma", ...defaultTheme.fontFamily.serif],
