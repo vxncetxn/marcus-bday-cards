@@ -8,13 +8,13 @@ interface Props {
 const { message } = Astro.props;
 ---
 
-<div class="bg-white flex flex-col justify-between p-[0.5vw] w-[10vw] h-[6vw]">
-  <p class="font-aside text-sm leading-4 capsize font-bold">
+<div class="flex h-[6vw] w-[10vw] flex-col justify-between bg-white p-[0.5vw]">
+  <p class="font-bold font-aside text-sm leading-4 capsize">
     {message.data.title}
   </p>
   <div class="flex flex-col gap-[0.5vw]">
-    <p class="font-aside text-xs capsize self-end italic">2024</p>
-    <p class="font-aside text-xs capsize self-end">
+    <p class="self-end italic font-aside text-xs capsize">2024</p>
+    <p class="self-end font-aside text-xs capsize">
       {message.data.image.properties.focalLength}mm f/{
         message.data.image.properties.aperture
       }

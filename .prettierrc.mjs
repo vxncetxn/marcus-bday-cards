@@ -1,6 +1,7 @@
-/** @type {import("prettier").Config} */
+/** @type {import("prettier").Options} */
 export default {
-  plugins: ["prettier-plugin-astro"],
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  astroAllowShorthand: true,
   overrides: [
     {
       files: "*.astro",

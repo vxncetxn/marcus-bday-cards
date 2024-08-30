@@ -13,21 +13,21 @@ const { messagesCount } = Astro.props;
 <div
   data-messages-count={messagesCount}
   id="tool-bar"
-  class="fixed right-40 top-0 transform -translate-y-full flex bg-stone-800 opacity-10 rounded-xl text-stone-100 font-aside text-xs hover:opacity-100 z-50 transition-all"
+  class="fixed right-40 top-0 z-50 flex -translate-y-full transform rounded-xl bg-stone-800 text-stone-100 opacity-10 transition-all font-aside text-xs hover:opacity-100"
 >
-  <button id="back-button" class="px-20 border-r border-stone-700 py-8">
-    <div class="flex justify-center items-center">
+  <button id="back-button" class="border-r border-stone-700 px-20 py-8">
+    <div class="flex items-center justify-center">
       <p class="uppercase">Back</p>
     </div>
   </button>
-  <button id="camera-button" class="px-12 py-8 border-r border-stone-700"
+  <button id="camera-button" class="border-r border-stone-700 px-12 py-8"
     ><Icon name="camera" class="size-20" />
   </button>
-  <button id="expand-button" class="px-12 py-8 border-r border-stone-700"
+  <button id="expand-button" class="border-r border-stone-700 px-12 py-8"
     ><Icon name="expand" class="size-20" />
   </button>
   <button id="next-button" class="px-20 py-8">
-    <div class="flex justify-center items-center">
+    <div class="flex items-center justify-center">
       <p class="uppercase">Next</p>
     </div>
   </button>
@@ -35,7 +35,7 @@ const { messagesCount } = Astro.props;
 <audio id="flash-audio" src={cameraShutter}></audio>
 <div
   id="flash"
-  class="fixed left-0 top-0 bg-white w-screen h-screen z-50 opacity-0 transform scale-0"
+  class="fixed left-0 top-0 z-50 h-screen w-screen scale-0 transform bg-white opacity-0"
 >
 </div>
 

@@ -22,7 +22,7 @@ if (!images[message.data.image.path])
 ---
 
 <article id={`exhibit-${index}`} class="snap-center bg-stone-200">
-  <div class="h-screen w-screen flex justify-center items-center">
+  <div class="flex h-screen w-screen items-center justify-center">
     <figure
       class={`relative z-40 ${message.data.image.properties.isPortrait ? "w-[20vw]" : "w-[30vw]"}`}
     >
@@ -33,9 +33,9 @@ if (!images[message.data.image.path])
         loading="eager"
       />
       <div
-        class="absolute -right-[calc(22.5%_+_1vw)] bottom-[calc(6vw_-_22.5%)] transform translate-x-full translate-y-full"
+        class="absolute -right-[calc(22.5%_+_1vw)] bottom-[calc(6vw_-_22.5%)] translate-x-full translate-y-full transform"
       >
-        <Label message={message} />
+        <Label {message} />
       </div>
     </figure>
   </div>

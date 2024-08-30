@@ -12,32 +12,32 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="h-screen flex justify-start items-center relative">
+  <main class="relative flex h-screen items-center justify-start">
     <div
       id="intro"
-      class="w-1/2 shrink-0 snap-start h-screen flex flex-col justify-center px-[5vw] text-stone-800"
+      class="flex h-screen w-1/2 shrink-0 snap-start flex-col justify-center px-[5vw] text-stone-800"
     >
       <div class="flex flex-col gap-8">
         <p
-          class="font-serif text-[12.5vw] leading-normal capsize transform -translate-x-8"
+          class="-translate-x-8 transform font-serif text-[12.5vw] leading-normal capsize"
         >
           Galerie
         </p>
         <p class="font-serif text-[8.25vw] leading-normal capsize">du Marcus</p>
       </div>
-      <p class="font-sans text-2xl capsize mt-[3.5rem]">
+      <p class="mt-[3.5rem] font-sans text-2xl capsize">
         Presenting <span class="italic">SD4LOVESYOU</span> — An exclusive photo exhibition
         celebrating some of SD4’s favourite moments captured through the lens, eyes,
         hands and very big heart of Marcus!
       </p>
       <button
         id="enter-button"
-        class="mt-[5.5rem] bg-stone-800 text-stone-100 font-aside text-xl capsize self-start px-32 py-8 rounded-lg flex items-center gap-8"
+        class="mt-[5.5rem] flex items-center gap-8 self-start rounded-lg bg-stone-800 px-32 py-8 text-stone-100 font-aside text-xl capsize"
         >Enter
         <Icon name="arrow-right" />
       </button>
     </div>
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
       {messages.map((message, idx) => <Frame message={message} index={idx} />)}
     </div>
     <ToolBar messagesCount={messages.length} />
