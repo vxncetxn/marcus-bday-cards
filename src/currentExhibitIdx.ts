@@ -1,3 +1,3 @@
 import { atom } from "nanostores";
 
-export const $currentExhibitIdx = atom(0);
+export const $currentExhibitIdx = atom<number>(0);

@@ -1,4 +1,5 @@
 ---
+import { $currentExhibitIdx } from "../currentExhibitIdx";
 import FullscreenButton from "./FullscreenButton.astro";
 import CameraButton from "./CameraButton.astro";
 
@@ -7,6 +8,8 @@ interface Props {
 }
 
 const { messagesCount } = Astro.props;
+
+console.log(messagesCount);
 ---
 
 <div
@@ -21,7 +24,7 @@ const { messagesCount } = Astro.props;
   </button>
   <CameraButton />
   <FullscreenButton />
-  <button id="next-button" class="px-20 py-8">
+  <button id="next-button" class="px-20 py-8 disabled:cursor-not-allowed">
     <div class="flex items-center justify-center">
       <p class="uppercase">Next</p>
     </div>
@@ -38,7 +41,25 @@ const { messagesCount } = Astro.props;
   import { $currentExhibitIdx } from "../currentExhibitIdx";
 
   const toolBar = document.getElementById("toolbar");
-  const messagesCount = toolBar?.dataset.messagesCount;
+  const messagesCount = parseInt(
+    toolBar?.dataset.messagesCount ? toolBar?.dataset.messagesCount : "0",
+  );
+  const backButton = document.getElementById(
+    "back-button",
+  ) as HTMLButtonElement | null;
+  const nextButton = document.getElementById(
+    "next-button",
+  ) as HTMLButtonElement | null;
+
+  $currentExhibitIdx.listen((idx) => {
+    if (nextButton) {
+      if (idx + 1 === messagesCount) {
+        nextButton.disabled = true;
+      } else {
+        nextButton.disabled = false;
+      }
+    }
+  });
 
   // Observation for Intro
   const introObserverCallback = (entries: IntersectionObserverEntry[]) => {
@@ -59,9 +80,7 @@ const { messagesCount } = Astro.props;
   }
 
   // Observation for Exhibits
-  const exhibitTargets = [
-    ...Array(parseInt(messagesCount ? messagesCount : "0")).keys(),
-  ].map((idx) => {
+  const exhibitTargets = [...Array(messagesCount).keys()].map((idx) => {
     return document.getElementById(`exhibit-${idx}`);
   });
   const exhibitObserverCallback = (entries: IntersectionObserverEntry[]) => {
@@ -81,8 +100,6 @@ const { messagesCount } = Astro.props;
   });
 
   // Add event listeners to back and next buttons
-  const backButton = document.getElementById("back-button");
-  const nextButton = document.getElementById("next-button");
   backButton?.addEventListener("click", () => {
     const currentExhibitIdx = $currentExhibitIdx.get();
 
