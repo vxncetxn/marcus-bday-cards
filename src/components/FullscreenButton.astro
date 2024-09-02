@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button id="fullscreen-button" class="px-12 py-8"
+  ><Icon name="expand" class="size-20" />
+</button>
+
+<script>
+  const fullscreenButton = document.getElementById("fullscreen-button");
+  const root = document.querySelector("html");
+
+  fullscreenButton?.addEventListener("click", () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      if (root?.requestFullscreen) {
+        root.requestFullscreen();
+      }
+    }
+  });
+</script>

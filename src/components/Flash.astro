@@ -1,0 +1,17 @@
+---
+import cameraShutter from "/camera-shutter.mp3";
+---
+
+<audio id="flash-audio" src={cameraShutter}></audio>
+<div
+  id="flash"
+  class="fixed left-0 top-0 z-50 h-screen w-screen scale-0 transform bg-white opacity-0"
+>
+</div>
+
+<style>
+  .flash-shown {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>

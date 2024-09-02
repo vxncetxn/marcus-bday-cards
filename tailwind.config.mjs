@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -61,5 +62,11 @@ export default {
       360: "22.5rem",
     },
   },
-  plugins: [require("tailwindcss-capsize")],
+  plugins: [
+    require("tailwindcss-capsize"),
+    plugin(function ({ addVariant }) {
+      // Add a `third` variant, ie. `third:pb-0`
+      addVariant("owl", "&>*+*");
+    }),
+  ],
 };

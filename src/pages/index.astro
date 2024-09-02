@@ -5,9 +5,11 @@ import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 
 import Layout from "../layouts/Layout.astro";
+import Overlay from "../components/Overlay.astro";
 import Frame from "../components/Frame.astro";
 import ToolBar from "../components/ToolBar.astro";
-import Overlay from "../components/Overlay.astro";
+import Flash from "../components/Flash.astro";
+import Photograph from "../components/Photograph.astro";
 
 const messages: CollectionEntry<"messages">[] = await getCollection("messages");
 ---
@@ -44,6 +46,8 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
     </div>
     <ToolBar messagesCount={messages.length} />
   </main>
+  <Flash />
+  <Photograph />
 </Layout>
 
 <script>

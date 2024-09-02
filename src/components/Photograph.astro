@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+  id="photograph"
+  class="group fixed bottom-0 right-40 z-50 grid w-[30vw] translate-y-full transform bg-white p-8 transition-transform"
+>
+  <img />
+  <div
+    class="absolute bottom-0 left-0 right-0 top-0 bg-black/40 p-16 text-stone-100 opacity-0 transition-opacity group-hover:opacity-100"
+  >
+    <a
+      id="download-button"
+      class="absolute bottom-16 right-16 flex select-none items-center gap-8 rounded-md border border-stone-100 px-12 py-4 uppercase font-aside capsize"
+      >Download <Icon name="download" class="size-20" />
+    </a>
+    <button id="close-photograph-button" class="absolute right-16 top-16">
+      <Icon name="x" class="size-24" is:inline />
+    </button>
+  </div>
+</div>
+
+<style>
+  #photograph {
+    box-shadow:
+      0px 1em 8em -1em rgba(0, 0, 0, 0.4),
+      0px 2em 8em -1em rgba(0, 0, 0, 0.3),
+      0px 3em 4em -1em rgba(0, 0, 0, 0.2),
+      0px 4em 4em -1em rgba(0, 0, 0, 0.15),
+      0px 5em 2em -1em rgba(0, 0, 0, 0.1),
+      0px 6em 2em -1em rgba(0, 0, 0, 0.05),
+      0px 2em 4em 0.5em rgba(0, 0, 0, 0.1),
+      inset 0 0.2em 0.1em #fff;
+  }
+
+  .photograph-shown {
+    transform: translateY(-25%);
+  }
+</style>

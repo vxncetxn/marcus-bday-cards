@@ -1,7 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
-
-import cameraShutter from "/camera-shutter.mp3";
+import FullscreenButton from "./FullscreenButton.astro";
+import CameraButton from "./CameraButton.astro";
 
 interface Props {
   messagesCount: number;
@@ -12,87 +11,34 @@ const { messagesCount } = Astro.props;
 
 <div
   data-messages-count={messagesCount}
-  id="tool-bar"
-  class="fixed right-40 top-0 z-50 flex -translate-y-full transform rounded-xl bg-stone-800 text-stone-100 opacity-10 transition-all font-aside text-xs hover:opacity-100"
+  id="toolbar"
+  class="owl:border-l owl:border-stone-700 fixed right-40 top-0 z-50 flex -translate-y-full transform rounded-xl bg-stone-800 text-stone-100 opacity-10 transition-all font-aside text-xs hover:opacity-100"
 >
-  <button id="back-button" class="border-r border-stone-700 px-20 py-8">
+  <button id="back-button" class="px-20 py-8">
     <div class="flex items-center justify-center">
       <p class="uppercase">Back</p>
     </div>
   </button>
-  <button id="camera-button" class="border-r border-stone-700 px-12 py-8"
-    ><Icon name="camera" class="size-20" />
-  </button>
-  <button id="expand-button" class="border-r border-stone-700 px-12 py-8"
-    ><Icon name="expand" class="size-20" />
-  </button>
+  <CameraButton />
+  <FullscreenButton />
   <button id="next-button" class="px-20 py-8">
     <div class="flex items-center justify-center">
       <p class="uppercase">Next</p>
     </div>
   </button>
 </div>
-<audio id="flash-audio" src={cameraShutter}></audio>
-<div
-  id="flash"
-  class="fixed left-0 top-0 z-50 h-screen w-screen scale-0 transform bg-white opacity-0"
->
-</div>
-<div
-  id="photograph"
-  class="group fixed bottom-0 right-40 z-50 grid w-[30vw] translate-y-full transform bg-white p-8 transition-transform"
->
-  <img />
-  <div
-    class="absolute bottom-0 left-0 right-0 top-0 bg-black/40 p-16 text-stone-100 opacity-0 transition-opacity group-hover:opacity-100"
-  >
-    <a
-      id="download-button"
-      class="absolute bottom-16 right-16 flex select-none items-center gap-8 rounded-md border border-stone-100 px-12 py-4 uppercase font-aside capsize"
-      >Download <Icon name="download" class="size-20" />
-    </a>
-    <button id="close-photograph-button" class="absolute right-16 top-16">
-      <Icon name="x" class="size-24" is:inline />
-    </button>
-  </div>
-</div>
 
 <style>
   .toolbar-shown {
     transform: translateY(50%);
   }
-
-  .flash-shown {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  #photograph {
-    box-shadow:
-      0px 1em 8em -1em rgba(0, 0, 0, 0.4),
-      0px 2em 8em -1em rgba(0, 0, 0, 0.3),
-      0px 3em 4em -1em rgba(0, 0, 0, 0.2),
-      0px 4em 4em -1em rgba(0, 0, 0, 0.15),
-      0px 5em 2em -1em rgba(0, 0, 0, 0.1),
-      0px 6em 2em -1em rgba(0, 0, 0, 0.05),
-      0px 2em 4em 0.5em rgba(0, 0, 0, 0.1),
-      inset 0 0.2em 0.1em #fff;
-  }
-
-  .photograph-shown {
-    transform: translateY(-25%);
-  }
 </style>
 
 <script>
-  import { domToJpeg } from "modern-screenshot";
-
-  import { createContext, updateContext } from "../utils/modern-screenshot";
   import { $currentExhibitIdx } from "../currentExhibitIdx";
 
-  const toolBar = document.getElementById("tool-bar");
+  const toolBar = document.getElementById("toolbar");
   const messagesCount = toolBar?.dataset.messagesCount;
-  const context = await createContext();
 
   // Observation for Intro
   const introObserverCallback = (entries: IntersectionObserverEntry[]) => {
@@ -121,7 +67,6 @@ const { messagesCount } = Astro.props;
   const exhibitObserverCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // console.log(entry.target.id);
         $currentExhibitIdx.set(parseInt(entry.target.id.slice(8)));
       }
     });
@@ -153,70 +98,5 @@ const { messagesCount } = Astro.props;
     exhibitTargets[$currentExhibitIdx.get() + 1]?.scrollIntoView({
       behavior: "smooth",
     });
-  });
-
-  // Add event listener to camera button for screenshots
-  const cameraButton = document.getElementById("camera-button");
-  cameraButton?.addEventListener("click", async () => {
-    const currentExhibitIdx = $currentExhibitIdx.get();
-    const exhibit = document.getElementById(`exhibit-${currentExhibitIdx}`);
-    const flash = document.getElementById("flash");
-    const flashAudio = document.getElementById(
-      "flash-audio",
-    ) as HTMLAudioElement | null;
-    const photograph = document.getElementById("photograph");
-    const img = photograph?.firstElementChild as HTMLImageElement;
-    const downloadButton = document.getElementById(
-      "download-button",
-    ) as HTMLAnchorElement | null;
-
-    if (context && exhibit && downloadButton) {
-      // Update screenshot context based on current exhibit index
-      const updatedContext = updateContext(context, exhibit);
-
-      // Run flash animation
-      flash?.classList.add("flash-shown");
-      flashAudio?.play();
-      setTimeout(() => {
-        flash?.classList.remove("flash-shown");
-      }, 100);
-
-      // Get data URL and set preview img and download button
-      const dataURl = await domToJpeg(updatedContext);
-      img.src = dataURl;
-      downloadButton.download = `Exhibit-${currentExhibitIdx + 1}.jpeg`;
-      downloadButton.href = dataURl;
-
-      photograph?.classList.add("photograph-shown");
-    }
-  });
-
-  // Add event listeners to download and close photograph buttons
-  const photograph = document.getElementById("photograph");
-  const downloadButton = document.getElementById(
-    "download-button",
-  ) as HTMLAnchorElement | null;
-  const closePhotographButton = document.getElementById(
-    "close-photograph-button",
-  );
-  downloadButton?.addEventListener("click", () => {
-    photograph?.classList.remove("photograph-shown");
-  });
-  closePhotographButton?.addEventListener("click", () => {
-    photograph?.classList.remove("photograph-shown");
-  });
-
-  // Add event listener to expand button for fullscreen
-  const expandButton = document.getElementById("expand-button");
-  expandButton?.addEventListener("click", () => {
-    const root = document.querySelector("html");
-
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else {
-      if (root?.requestFullscreen) {
-        root.requestFullscreen();
-      }
-    }
   });
 </script>

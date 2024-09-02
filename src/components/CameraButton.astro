@@ -1,0 +1,64 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button id="camera-button" class="px-12 py-8"
+  ><Icon name="camera" class="size-20" />
+</button>
+
+<script>
+  import { domToJpeg } from "modern-screenshot";
+
+  import { $currentExhibitIdx } from "../currentExhibitIdx";
+  import { createContext, updateContext } from "../utils/modern-screenshot";
+
+  const context = await createContext();
+
+  const flash = document.getElementById("flash");
+  const flashAudio = document.getElementById(
+    "flash-audio",
+  ) as HTMLAudioElement | null;
+  const photograph = document.getElementById("photograph");
+  const img = photograph?.firstElementChild as HTMLImageElement;
+  const downloadButton = document.getElementById(
+    "download-button",
+  ) as HTMLAnchorElement | null;
+  const closePhotographButton = document.getElementById(
+    "close-photograph-button",
+  );
+
+  // Add event listener to camera button for screenshots
+  const cameraButton = document.getElementById("camera-button");
+  cameraButton?.addEventListener("click", async () => {
+    const currentExhibitIdx = $currentExhibitIdx.get();
+    const exhibit = document.getElementById(`exhibit-${currentExhibitIdx}`);
+
+    if (context && exhibit && downloadButton) {
+      // Update screenshot context based on current exhibit index
+      const updatedContext = updateContext(context, exhibit);
+
+      // Run flash animation
+      flash?.classList.add("flash-shown");
+      flashAudio?.play();
+      setTimeout(() => {
+        flash?.classList.remove("flash-shown");
+      }, 100);
+
+      // Get data URL and set preview img and download button
+      const dataURl = await domToJpeg(updatedContext);
+      img.src = dataURl;
+      downloadButton.download = `Exhibit-${currentExhibitIdx + 1}.jpeg`;
+      downloadButton.href = dataURl;
+
+      photograph?.classList.add("photograph-shown");
+    }
+  });
+
+  // Add event listeners to download and close photograph buttons
+  downloadButton?.addEventListener("click", () => {
+    photograph?.classList.remove("photograph-shown");
+  });
+  closePhotographButton?.addEventListener("click", () => {
+    photograph?.classList.remove("photograph-shown");
+  });
+</script>
