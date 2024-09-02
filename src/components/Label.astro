@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   message: CollectionEntry<"messages">;
@@ -9,7 +10,7 @@ const { message } = Astro.props;
 ---
 
 <div
-  class="exhibit-label absolute left-1/2 top-1/2 z-50 h-[6vw] w-[10vw] translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.75vw*1.45-100%)] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"
+  class={`exhibit-label absolute left-1/2 top-1/2 z-50 h-[6vw] w-[10vw] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${message.data.image.properties.isPortrait ? "translate-x-[calc(10vw*1.45+1vw)] translate-y-[calc(13.33vw*1.45-100%)]" : "translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.75vw*1.45-100%)]"}`}
 >
   <div
     class="small-label flex h-full w-full flex-col justify-between opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"
@@ -32,7 +33,7 @@ const { message } = Astro.props;
   >
     <div class="flex flex-col">
       <p class="font-bold font-aside text-5xl leading-4 capsize">
-        {message.data.title}, 2024
+        {message.data.title}, <span class="italic">2024</span>
       </p>
       <p class="mt-40 font-aside text-3xl capsize">
         {message.data.image.properties.focalLength}mm f/{
@@ -44,6 +45,10 @@ const { message } = Astro.props;
         {message.body}
       </p>
     </div>
+    <button
+      class="close-label-button absolute left-0 top-0 flex -translate-y-[calc(100%+1vw)] transform select-none items-center gap-8 rounded-md border border-stone-100 px-12 py-4 uppercase text-stone-100 font-aside capsize"
+      >Close <Icon name="x" class="size-20" is:inline /></button
+    >
   </div>
 </div>
 
@@ -62,9 +67,23 @@ const { message } = Astro.props;
 </style>
 
 <script>
+  const overlay = document.getElementById("overlay");
+
   document.querySelectorAll(".exhibit-label").forEach((label) => {
+    const closeLabelButton = label.querySelector(".close-label-button");
+
     label.addEventListener("click", () => {
-      label.classList.toggle("label-expanded");
+      overlay?.classList.add("overlay-shown");
+      label.classList.add("label-expanded");
+    });
+    overlay?.addEventListener("click", (event) => {
+      overlay?.classList.remove("overlay-shown");
+      label.classList.remove("label-expanded");
+    });
+    closeLabelButton?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      overlay?.classList.remove("overlay-shown");
+      label.classList.remove("label-expanded");
     });
   });
 </script>

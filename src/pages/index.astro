@@ -7,11 +7,13 @@ import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
 import Frame from "../components/Frame.astro";
 import ToolBar from "../components/ToolBar.astro";
+import Overlay from "../components/Overlay.astro";
 
 const messages: CollectionEntry<"messages">[] = await getCollection("messages");
 ---
 
 <Layout title="Welcome to Astro.">
+  <Overlay />
   <main class="relative flex h-screen items-center justify-start">
     <div
       id="intro"
