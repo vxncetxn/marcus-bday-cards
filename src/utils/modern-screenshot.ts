@@ -19,6 +19,8 @@ export const createContext = async () => {
 
 export const updateContext = (context: Context<Node>, node: Node) => {
   context.node = node;
+  context.width = window.innerWidth;
+  context.height = window.innerHeight;
 
   return context;
 };
