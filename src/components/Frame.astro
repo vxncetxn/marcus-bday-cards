@@ -24,7 +24,7 @@ if (!images[message.data.image.path])
 <article id={`exhibit-${index}`} class="bg-noise snap-center bg-stone-200">
   <div class="relative flex h-screen w-screen items-center justify-center">
     <figure
-      class={`relative z-40 ${message.data.image.properties.isPortrait ? "w-[20vw] aspect-[3/4]" : "w-[30vw] aspect-[4/3]"}`}
+      class={`relative z-10 ${message.data.image.properties.isPortrait ? "w-[20vw] aspect-[3/4]" : "w-[30vw] aspect-[4/3]"}`}
     >
       <Image
         src={images[message.data.image.path]()}

@@ -10,10 +10,10 @@ const { message } = Astro.props;
 ---
 
 <div
-  class={`exhibit-label absolute left-1/2 top-1/2 z-50 h-[6vw] w-[10vw] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${message.data.image.properties.isPortrait ? "translate-x-[calc(10vw*1.45+1vw)] translate-y-[calc(13.33vw*1.45-100%)]" : "translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.75vw*1.45-100%)]"}`}
+  class={`exhibit-label absolute left-1/2 top-1/2 z-40 h-[6vw] w-[10vw] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${message.data.image.properties.isPortrait ? "translate-x-[calc(10vw*1.45+1vw)] translate-y-[calc(13.33vw*1.45-100%)]" : "translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.75vw*1.45-100%)]"}`}
 >
   <div
-    class="small-label flex h-full w-full flex-col justify-between opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"
+    class="small-content flex h-full w-full flex-col justify-between opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"
   >
     <p class="font-bold font-aside text-sm leading-4 capsize">
       {message.data.title}
@@ -29,7 +29,7 @@ const { message } = Astro.props;
     </div>
   </div>
   <div
-    class="large-label absolute left-0 top-0 z-50 h-[39vw] w-[65vw] origin-top-left scale-[0.154] transform bg-white p-40 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"
+    class="expanded-content absolute left-0 top-0 h-[39vw] w-[65vw] origin-top-left scale-[0.154] transform bg-white p-40 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"
   >
     <div class="flex flex-col">
       <p class="font-bold font-aside text-5xl leading-4 capsize">
@@ -57,11 +57,11 @@ const { message } = Astro.props;
     transform: translate(-50%, -50%) scale(6.5);
   }
 
-  .label-expanded > .small-label {
+  .label-expanded > .small-content {
     opacity: 0;
   }
 
-  .label-expanded > .large-label {
+  .label-expanded > .expanded-content {
     opacity: 100;
   }
 </style>
@@ -71,18 +71,31 @@ const { message } = Astro.props;
 
   document.querySelectorAll(".exhibit-label").forEach((label) => {
     const closeLabelButton = label.querySelector(".close-label-button");
+    const root = document.querySelector("html");
 
     label.addEventListener("click", () => {
-      overlay?.classList.add("overlay-shown");
+      root?.classList.add("disable-scroll");
+      overlay?.classList.add("overlay-present");
+      setTimeout(() => {
+        overlay?.classList.add("overlay-shown");
+      }, 0);
       label.classList.add("label-expanded");
     });
     overlay?.addEventListener("click", (event) => {
       overlay?.classList.remove("overlay-shown");
+      setTimeout(() => {
+        overlay?.classList.remove("overlay-present");
+        root?.classList.remove("disable-scroll");
+      }, 500);
       label.classList.remove("label-expanded");
     });
     closeLabelButton?.addEventListener("click", (event) => {
       event.stopPropagation();
       overlay?.classList.remove("overlay-shown");
+      setTimeout(() => {
+        overlay?.classList.remove("overlay-present");
+        root?.classList.remove("disable-scroll");
+      }, 500);
       label.classList.remove("label-expanded");
     });
   });
