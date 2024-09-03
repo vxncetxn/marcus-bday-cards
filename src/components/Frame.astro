@@ -29,7 +29,7 @@ if (!images[message.data.image.path])
 >
   <Overlay {index} />
   <figure
-    class={`z-10 relative ${message.data.image.properties.isPortrait ? "w-[20vw] aspect-[3/4]" : "w-[30vw] aspect-[4/3]"}`}
+    class={`[contain:layout_style] z-10 relative ${message.data.image.properties.isPortrait ? "w-[20vw] aspect-[3/4]" : "w-[30vw] aspect-[4/3]"}`}
   >
     <Image
       src={images[message.data.image.path]()}
