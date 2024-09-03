@@ -11,6 +11,11 @@ export const createContext = async () => {
       workerNumber: 1,
       quality: 1,
       scale: window.devicePixelRatio || 1,
+      style: {
+        contentVisibility: "visible",
+      },
+      width: 0,
+      height: 0,
     });
 
     return context;

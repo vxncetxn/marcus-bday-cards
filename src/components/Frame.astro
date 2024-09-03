@@ -2,6 +2,8 @@
 import type { ImageMetadata } from "astro";
 import type { CollectionEntry } from "astro:content";
 
+import Overlay from "../components/Overlay.astro";
+
 import { Image } from "astro:assets";
 
 import Label from "../components/Label.astro";
@@ -21,21 +23,23 @@ if (!images[message.data.image.path])
   );
 ---
 
-<article id={`exhibit-${index}`} class="bg-noise snap-center bg-stone-200">
-  <div class="relative flex h-screen w-screen items-center justify-center">
-    <figure
-      class={`relative z-10 ${message.data.image.properties.isPortrait ? "w-[20vw] aspect-[3/4]" : "w-[30vw] aspect-[4/3]"}`}
-    >
-      <Image
-        src={images[message.data.image.path]()}
-        alt={message.data.title}
-        densities={[1, 1.5, 2]}
-        loading="eager"
-        class="box-border"
-      />
-    </figure>
-    <Label {message} />
-  </div>
+<article
+  id={`exhibit-${index}`}
+  class="bg-noise visibility-auto z-10 flex h-screen w-screen snap-center items-center justify-center bg-stone-200 contain-strict"
+>
+  <Overlay {index} />
+  <figure
+    class={`z-10 relative ${message.data.image.properties.isPortrait ? "w-[20vw] aspect-[3/4]" : "w-[30vw] aspect-[4/3]"}`}
+  >
+    <Image
+      src={images[message.data.image.path]()}
+      alt={message.data.title}
+      densities={[1, 1.5, 2]}
+      loading="eager"
+      class="box-border"
+    />
+  </figure>
+  <Label {index} {message} />
 </article>
 
 <style>

@@ -3,14 +3,16 @@ import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 
 interface Props {
+  index: number;
   message: CollectionEntry<"messages">;
 }
 
-const { message } = Astro.props;
+const { index, message } = Astro.props;
 ---
 
 <div
-  class={`exhibit-label absolute left-1/2 top-1/2 z-40 h-[6vw] w-[10vw] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${message.data.image.properties.isPortrait ? "translate-x-[calc(10vw*1.45+1vw)] translate-y-[calc(13.33vw*1.45-100%)]" : "translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.75vw*1.45-100%)]"}`}
+  id={`label-${index}`}
+  class={`[contain:size_layout_style] z-20 absolute left-1/2 top-1/2 h-[6vw] w-[10vw] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${message.data.image.properties.isPortrait ? "translate-x-[calc(10vw*1.45+1vw)] translate-y-[calc(13.33vw*1.45-100%)]" : "translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.75vw*1.45-100%)]"}`}
 >
   <div
     class="small-content flex h-full w-full flex-col justify-between opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"
@@ -66,37 +68,39 @@ const { message } = Astro.props;
   }
 </style>
 
-<script>
-  const overlay = document.getElementById("overlay");
+<script define:vars={{ index }}>
+  const root = document.querySelector("html");
+  const toolBar = document.getElementById("toolbar");
+  const overlay = document.getElementById(`overlay-${index}`);
+  const label = document.getElementById(`label-${index}`);
+  const closeLabelButton = label.querySelector(".close-label-button");
 
-  document.querySelectorAll(".exhibit-label").forEach((label) => {
-    const closeLabelButton = label.querySelector(".close-label-button");
-    const root = document.querySelector("html");
-
-    label.addEventListener("click", () => {
-      root?.classList.add("disable-scroll");
-      overlay?.classList.add("overlay-present");
-      setTimeout(() => {
-        overlay?.classList.add("overlay-shown");
-      }, 0);
-      label.classList.add("label-expanded");
-    });
-    overlay?.addEventListener("click", (event) => {
-      overlay?.classList.remove("overlay-shown");
-      setTimeout(() => {
-        overlay?.classList.remove("overlay-present");
-        root?.classList.remove("disable-scroll");
-      }, 500);
-      label.classList.remove("label-expanded");
-    });
-    closeLabelButton?.addEventListener("click", (event) => {
-      event.stopPropagation();
-      overlay?.classList.remove("overlay-shown");
-      setTimeout(() => {
-        overlay?.classList.remove("overlay-present");
-        root?.classList.remove("disable-scroll");
-      }, 500);
-      label.classList.remove("label-expanded");
-    });
+  label.addEventListener("click", () => {
+    root.classList.add("disable-scroll");
+    toolBar.classList.remove("toolbar-shown");
+    overlay.classList.add("overlay-present");
+    setTimeout(() => {
+      overlay.classList.add("overlay-shown");
+    }, 0);
+    label.classList.add("label-expanded");
+  });
+  overlay.addEventListener("click", (event) => {
+    toolBar.classList.add("toolbar-shown");
+    overlay.classList.remove("overlay-shown");
+    setTimeout(() => {
+      overlay.classList.remove("overlay-present");
+      root.classList.remove("disable-scroll");
+    }, 500);
+    label.classList.remove("label-expanded");
+  });
+  closeLabelButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toolBar.classList.add("toolbar-shown");
+    overlay.classList.remove("overlay-shown");
+    setTimeout(() => {
+      overlay.classList.remove("overlay-present");
+      root.classList.remove("disable-scroll");
+    }, 500);
+    label.classList.remove("label-expanded");
   });
 </script>

@@ -64,9 +64,44 @@ export default {
   },
   plugins: [
     require("tailwindcss-capsize"),
-    plugin(function ({ addVariant }) {
+    plugin(function ({ addVariant, addUtilities }) {
       // Add a `third` variant, ie. `third:pb-0`
       addVariant("owl", "&>*+*");
+      addUtilities({
+        ".contain-none": {
+          contain: "none",
+        },
+        ".contain-strict": {
+          contain: "strict",
+        },
+        ".contain-content": {
+          contain: "content",
+        },
+        ".contain-size": {
+          contain: "size",
+        },
+        ".contain-inline": {
+          contain: "inline-size",
+        },
+        ".contain-layout": {
+          contain: "layout",
+        },
+        ".contain-style": {
+          contain: "style",
+        },
+        ".contain-paint": {
+          contain: "paint",
+        },
+        ".visibility-visible": {
+          "content-visibility": "visible",
+        },
+        ".visibility-hidden": {
+          "content-visibility": "hidden",
+        },
+        ".visibility-auto": {
+          "content-visibility": "auto",
+        },
+      });
     }),
   ],
 };

@@ -5,7 +5,6 @@ import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 
 import Layout from "../layouts/Layout.astro";
-import Overlay from "../components/Overlay.astro";
 import Frame from "../components/Frame.astro";
 import ToolBar from "../components/ToolBar.astro";
 import Flash from "../components/Flash.astro";
@@ -15,8 +14,8 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
 ---
 
 <Layout title="Welcome to Astro.">
-  <Overlay />
   <main class="relative flex h-screen items-center justify-start">
+    <ToolBar messagesCount={messages.length} />
     <div
       id="intro"
       class="flex h-screen w-1/2 shrink-0 snap-start flex-col justify-center px-[5vw] text-stone-800"
@@ -44,7 +43,6 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
     <div class="flex items-center justify-between">
       {messages.map((message, idx) => <Frame message={message} index={idx} />)}
     </div>
-    <ToolBar messagesCount={messages.length} />
   </main>
   <Flash />
   <Photograph />
