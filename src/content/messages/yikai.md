@@ -1,15 +1,15 @@
 ---
-author: Rachael
-title: Rachael's Graduation with Sister
+author: Yi Kai
+title: Yi Kai Balancing on Metal Railing
 image:
   {
-    path: /src/assets/img-4.jpg,
+    path: /src/assets/img-11.jpg,
     properties:
       {
-        focalLength: 25,
-        aperture: 1.8,
-        shutterSpeed: 1/4000,
-        isPortrait: true,
+        focalLength: 45,
+        aperture: 2.8,
+        shutterSpeed: 1/640,
+        isPortrait: false,
       },
   }
 ---

@@ -1,15 +1,15 @@
 ---
-author: Rachael
-title: Rachael's Graduation with Sister
+author: Russell
+title: Russell Wearing Cool Shades
 image:
   {
-    path: /src/assets/img-4.jpg,
+    path: /src/assets/img-12.jpg,
     properties:
       {
-        focalLength: 25,
-        aperture: 1.8,
-        shutterSpeed: 1/4000,
-        isPortrait: true,
+        focalLength: 47,
+        aperture: 4.0,
+        shutterSpeed: 1/500,
+        isPortrait: false,
       },
   }
 ---

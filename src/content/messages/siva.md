@@ -1,15 +1,15 @@
 ---
-author: Rachael
-title: Rachael's Graduation with Sister
+author: Siva
+title: Siva Getting Scared of Balloon
 image:
   {
-    path: /src/assets/img-4.jpg,
+    path: /src/assets/img-7.jpg,
     properties:
       {
-        focalLength: 25,
-        aperture: 1.8,
-        shutterSpeed: 1/4000,
-        isPortrait: true,
+        focalLength: 15,
+        aperture: 2.8,
+        shutterSpeed: 1/160,
+        isPortrait: false,
       },
   }
 ---

@@ -1,12 +1,12 @@
 ---
-author: Rachael
-title: Rachael's Graduation with Sister
+author: Dinesh
+title: Dinesh in Deep Thought
 image:
   {
-    path: /src/assets/img-4.jpg,
+    path: /src/assets/img-13.jpg,
     properties:
       {
-        focalLength: 25,
+        focalLength: 45,
         aperture: 1.8,
         shutterSpeed: 1/4000,
         isPortrait: true,

@@ -1,16 +1,11 @@
 ---
-author: Rachael
-title: Rachael's Graduation with Sister
+author: Keryn
+title: Keryn Enjoying BBQ with Friends
 image:
   {
-    path: /src/assets/img-4.jpg,
+    path: /src/assets/img-20.jpg,
     properties:
-      {
-        focalLength: 25,
-        aperture: 1.8,
-        shutterSpeed: 1/4000,
-        isPortrait: true,
-      },
+      { focalLength: 15, aperture: 2.5, shutterSpeed: 1/15, isPortrait: false },
   }
 ---
 

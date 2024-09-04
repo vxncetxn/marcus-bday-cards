@@ -1,14 +1,14 @@
 ---
-author: Rachael
-title: Rachael's Graduation with Sister
+author: Mavis
+title: Mavis with Graduation Balloon
 image:
   {
-    path: /src/assets/img-4.jpg,
+    path: /src/assets/img-14.jpg,
     properties:
       {
-        focalLength: 25,
+        focalLength: 45,
         aperture: 1.8,
-        shutterSpeed: 1/4000,
+        shutterSpeed: 1/1000,
         isPortrait: true,
       },
   }

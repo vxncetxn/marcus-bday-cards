@@ -1,16 +1,11 @@
 ---
-author: Rachael
-title: Rachael's Graduation with Sister
+author: Ivan
+title: Ivan Having Dinner After Work
 image:
   {
-    path: /src/assets/img-4.jpg,
+    path: /src/assets/img-19.jpg,
     properties:
-      {
-        focalLength: 25,
-        aperture: 1.8,
-        shutterSpeed: 1/4000,
-        isPortrait: true,
-      },
+      { focalLength: 15, aperture: 4.0, shutterSpeed: 1/40, isPortrait: false },
   }
 ---
 
