@@ -14,11 +14,13 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="relative flex h-screen items-center justify-start">
+  <main
+    class="relative flex h-svh snap-x snap-mandatory items-center justify-start overflow-y-hidden overscroll-none portrait:hidden"
+  >
     <ToolBar messagesCount={messages.length} />
     <div
       id="intro"
-      class="flex h-screen w-1/2 shrink-0 snap-start flex-col justify-center px-[5vw] text-stone-800"
+      class="flex h-screen w-[50svw] shrink-0 snap-start flex-col justify-center px-[5vw] text-stone-800"
     >
       <div class="flex flex-col gap-8">
         <p
@@ -40,9 +42,16 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
         <Icon name="arrow-right" />
       </button>
     </div>
-    <div class="flex items-center justify-between">
+    <div class="flex h-svh items-center justify-between">
       {messages.map((message, idx) => <Frame message={message} index={idx} />)}
     </div>
+  </main>
+  <main class="flex h-svh items-center justify-center p-120 landscape:hidden">
+    <p class="font-sans text-8xl capsize">
+      This content is best viewed on a desktop device. If viewing on a mobile
+      device, please switch to landscape mode and optionally lock device
+      orientation to landscape mode for the best experience. Enjoy!
+    </p>
   </main>
   <Flash />
   <Photograph />
