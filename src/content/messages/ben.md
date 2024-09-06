@@ -1,6 +1,5 @@
 ---
-author: Ben
-title: Ben Sitting Like a Boss
+title: Ben and Friends Sitting Like a Boss
 image: { focalLength: 15, aperture: 4, shutterSpeed: 1/160, type: "landscape" }
 order: 6
 ---

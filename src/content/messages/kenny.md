@@ -1,5 +1,4 @@
 ---
-author: Kenny
 title: Kenny Playing with Water Gun
 image: { focalLength: 15, aperture: 2.5, shutterSpeed: 1/50, type: "landscape" }
 order: 13

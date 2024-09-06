@@ -1,5 +1,4 @@
 ---
-author: Siva
 title: Siva Getting Scared of Balloon
 image:
   { focalLength: 15, aperture: 2.8, shutterSpeed: 1/160, type: "landscape" }

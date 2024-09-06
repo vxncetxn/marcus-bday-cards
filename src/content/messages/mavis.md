@@ -1,7 +1,7 @@
 ---
-title: Mavis with Graduation Balloon
+title: Mavis at Graduation Shoot
 image:
-  { focalLength: 45, aperture: 1.8, shutterSpeed: 1/1000, type: "portrait" }
+  { focalLength: 45, aperture: 1.8, shutterSpeed: 1/3200, type: "portrait" }
 order: 2
 ---
 

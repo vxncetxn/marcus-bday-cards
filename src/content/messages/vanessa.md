@@ -1,7 +1,7 @@
 ---
-title: Vanessa and Friends Chatting
+title: Vanessa on a Boat Ride
 image:
-  { focalLength: 15, aperture: 2.8, shutterSpeed: 1/160, type: "landscape" }
+  { focalLength: 12, aperture: 4.5, shutterSpeed: 1/160, type: "landscape" }
 order: 11
 ---
 

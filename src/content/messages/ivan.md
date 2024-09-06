@@ -1,5 +1,4 @@
 ---
-author: Ivan
 title: Ivan Having Dinner After Work
 image: { focalLength: 15, aperture: 4.0, shutterSpeed: 1/40, type: "landscape" }
 order: 15

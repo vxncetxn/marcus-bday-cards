@@ -1,7 +1,7 @@
 ---
-title: Amanda Eating Tomato
+title: Amanda Playing Rock-Paper-Scissors
 image:
-  { focalLength: 15, aperture: 2.8, shutterSpeed: 1/160, type: "landscape" }
+  { focalLength: 50, aperture: 4.0, shutterSpeed: 1/640, type: "landscape" }
 order: 17
 ---
 
