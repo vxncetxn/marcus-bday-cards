@@ -9,3 +9,5 @@ happy birthday marcus! always greeted by yr bubbly enthusiasm and energyyyyy! yo
 you’ve come so far from your slightly rockier seasons - i can feel that you want to be present and more of your heart through the things that you do and the way you carry the cg and church on your heart. keep seeking God and fight to stay pure and simple even with this brilliant brilliant mind of yours!
 
 once again, hpbd pall.
+
+- cristal

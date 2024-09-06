@@ -12,3 +12,5 @@ I love how genuine you are! you can be both so wacky and unserious and yet so se
 Seeing how you always put in so much effort in the details when you plan for friends is so lovely to see! You have such a big heart for others and don't let the world wear out the kindness and love you have to give. Jiayous!!! Onto more great seasons and hangouts and growing as a cg!!
 
 Happy burfday 🎂✨
+
+- Vanessa
