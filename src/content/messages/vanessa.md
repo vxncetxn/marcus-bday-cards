@@ -5,4 +5,10 @@ image:
 order: 11
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Happy birthday Marcus!
+
+I love how genuine you are! you can be both so wacky and unserious and yet so serious sensible and knowledgeable! Your warm love for others as well as your ambition is really inspiring! Also love hearing you share about life, experiences and friends and always inject so much faith and joy in our conversations.
+
+Seeing how you always put in so much effort in the details when you plan for friends is so lovely to see! You have such a big heart for others and don't let the world wear out the kindness and love you have to give. Jiayous!!! Onto more great seasons and hangouts and growing as a cg!!
+
+Happy burfday 🎂✨

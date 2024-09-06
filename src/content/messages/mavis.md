@@ -5,4 +5,8 @@ image:
 order: 2
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Happiest Birthday to the Happiest-Go-Lucky Boy in SD4!!! 🎂
+
+I really just want to take this opportunity to say THANK YOU for being such an awesome and sweet friend—not just to me, but to ALL your tomodachis. I'm sure I've shared this with you before, but just to reiterate, I think you're one of the few friends who truly goes above and beyond to be there for their friends. 🫶 That really touched me a lot, but it also inspired me to be there for my friends, family, and basically everyone around me. I think you're someone the CG really looks to when it comes to serving others! Thank you for being you, basically! Haha 🤪
+
+Also, I really like how we've become closer over the past year, especially recently with our childish banters and bickerings. Haha! Just know that I really appreciate and value the friendship we have. 🙂 Wishing you all the best for the next chapter of your life... YA LIFE!!! I can't wait to see the breakthroughs you'll have!!! 💪
