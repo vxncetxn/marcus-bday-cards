@@ -1,7 +1,6 @@
 ---
-title: Rachael's Graduation with Sister
-image:
-  { focalLength: 25, aperture: 1.8, shutterSpeed: 1/4000, type: "portrait" }
+title: Rachael Sitting on Grass
+image: { focalLength: 45, aperture: 1.8, shutterSpeed: 1/800, type: "portrait" }
 order: 26
 ---
 

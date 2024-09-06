@@ -65,14 +65,14 @@ const { index, message } = Astro.props;
 </style>
 
 <script define:vars={{ index }} is:inline>
-  const root = document.querySelector("html");
+  const main = document.getElementById("main");
   const toolBar = document.getElementById("toolbar");
   const overlay = document.getElementById(`overlay-${index}`);
   const label = document.getElementById(`label-${index}`);
   const closeLabelButton = label?.querySelector(".close-label-button");
 
   label?.addEventListener("click", () => {
-    root?.classList.add("disable-scroll");
+    main?.classList.add("disable-scroll");
     toolBar?.classList.remove("toolbar-shown");
     overlay?.classList.add("overlay-present");
     setTimeout(() => {
@@ -85,7 +85,7 @@ const { index, message } = Astro.props;
     overlay?.classList.remove("overlay-shown");
     setTimeout(() => {
       overlay?.classList.remove("overlay-present");
-      root?.classList.remove("disable-scroll");
+      main?.classList.remove("disable-scroll");
     }, 500);
     label?.classList.remove("label-expanded");
   });
@@ -95,7 +95,7 @@ const { index, message } = Astro.props;
     overlay?.classList.remove("overlay-shown");
     setTimeout(() => {
       overlay?.classList.remove("overlay-present");
-      root?.classList.remove("disable-scroll");
+      main?.classList.remove("disable-scroll");
     }, 500);
     label?.classList.remove("label-expanded");
   });
