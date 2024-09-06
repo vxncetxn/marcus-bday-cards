@@ -5,4 +5,11 @@ image: { focalLength: 15, aperture: 1.7, shutterSpeed: 1/80, type: "landscape" }
 order: 23
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Hey Marcus,
+
+Wishing you a very very x100 happy bday!! Honestly am very grateful for you in the past few months in the ways you’ve supported and encouraged me. Thanks for being my run (and occasionally life) coach, and for being the resident hype man of the cg. From training for 2xu together to having deep talks about life and relationships, I treasure all these moments we have spent together!
+
+I feel like you’re someone with such immense drive, passion and convictions and I respect you a lot for that. Just like how you root for everyone else in your life, I pray that every dream you carry on your heart will come to pass.
+
+Best regards,
+Evangeline
