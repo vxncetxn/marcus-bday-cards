@@ -43,7 +43,11 @@ const messages: CollectionEntry<"messages">[] = await getCollection("messages");
       </button>
     </div>
     <div class="flex h-svh items-center justify-between">
-      {messages.map((message, idx) => <Frame message={message} index={idx} />)}
+      {
+        messages
+          .sort((a, b) => a.data.order - b.data.order)
+          .map((message, idx) => <Frame message={message} index={idx} />)
+      }
     </div>
   </main>
   <main class="flex h-svh items-center justify-center p-120 landscape:hidden">

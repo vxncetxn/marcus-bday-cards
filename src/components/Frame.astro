@@ -17,9 +17,9 @@ const { message, index } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}",
 );
-if (!images[message.data.image.path])
+if (!images[`/src/assets/img-${message.data.order}.jpg`])
   throw new Error(
-    `"${message.data.image.path}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
+    `"/src/assets/img-${message.data.order}.jpg" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
   );
 ---
 
@@ -29,17 +29,17 @@ if (!images[message.data.image.path])
 >
   <Overlay {index} />
   <figure
-    class={`[contain:layout_style] z-10 relative ${message.data.image.properties.isPortrait ? "w-[20vw] aspect-[3/4]" : "w-[30vw] aspect-[4/3]"}`}
+    class={`[contain:layout_style] z-10 relative ${message.data.image.type === "portrait" ? "w-[20vw] aspect-[3/4]" : message.data.image.type === "landscape" ? "w-[30vw] aspect-[4/3]" : "w-[50vw]"}`}
   >
     <Image
-      src={images[message.data.image.path]()}
+      src={images[`/src/assets/img-${message.data.order}.jpg`]()}
       alt={message.data.title}
       densities={[1, 1.5, 2]}
       loading="eager"
-      class="box-border"
+      class={`object-cover box-border p-[2vw] shadow-[inset_0px_0.3em_0.1em_rgba(0,0,0,0.2)] ${message.data.image.type === "large" ? "aspect-video" : ""}`}
     />
   </figure>
-  <Label {index} {message} />
+  {message.data.image.type === "large" ? null : <Label {index} {message} />}
 </article>
 
 <style>
@@ -102,15 +102,5 @@ if (!images[message.data.image.path])
       0px 4em 1.5em -1em rgba(0, 0, 0, 0.15),
       0px 2em 4em 0.5em rgba(0, 0, 0, 0.1),
       inset 0 0.2em 0.1em #fff;
-  }
-
-  img {
-    box-sizing: border-box;
-    background: #fff;
-    position: relative;
-    display: block;
-    height: auto;
-    padding: 2vw;
-    box-shadow: inset 0px 0.3em 0.1em rgba(0, 0, 0, 0.2);
   }
 </style>
