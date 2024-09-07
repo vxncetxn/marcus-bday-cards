@@ -2,7 +2,7 @@
 title: CY Shooting Water Into Mouth
 image:
   { focalLength: 15, aperture: 2.5, shutterSpeed: 1/100, type: "landscape" }
-order: 25
+order: 22
 ---
 
 Happy Birthday Marcus! 🎉

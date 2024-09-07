@@ -1,7 +1,7 @@
 ---
 title: Creighton Catching Food with Mouth
 image: { focalLength: 47, aperture: 8.0, shutterSpeed: 1/160, type: "portrait" }
-order: 10
+order: 9
 ---
 
 HAPPIE BURDAE MARCUS!!

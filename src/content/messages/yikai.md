@@ -2,7 +2,7 @@
 title: Yi Kai Balancing on Metal Railing
 image:
   { focalLength: 45, aperture: 2.8, shutterSpeed: 1/640, type: "landscape" }
-order: 27
+order: 24
 ---
 
 happy birthday marcuspocus!!

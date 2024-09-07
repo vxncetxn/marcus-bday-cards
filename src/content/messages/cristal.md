@@ -1,7 +1,7 @@
 ---
-title: Cristal on Hello Ride Bike
+title: Cristal on HelloRide Bike
 image: { focalLength: 25, aperture: 1.4, shutterSpeed: 1/60, type: "landscape" }
-order: 7
+order: 6
 ---
 
 happy birthday marcus! always greeted by yr bubbly enthusiasm and energyyyyy! you add so much to the dynamics of the cg and your warmth brings people together :)

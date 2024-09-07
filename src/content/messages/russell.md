@@ -2,7 +2,7 @@
 title: Russell Wearing Cool Shades
 image:
   { focalLength: 47, aperture: 4.0, shutterSpeed: 1/500, type: "landscape" }
-order: 18
+order: 17
 ---
 
 Hi Marcus!

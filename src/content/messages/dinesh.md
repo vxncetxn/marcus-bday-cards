@@ -2,7 +2,7 @@
 title: Dinesh in Deep Thought
 image:
   { focalLength: 45, aperture: 1.8, shutterSpeed: 1/4000, type: "portrait" }
-order: 19
+order: 18
 ---
 
 Marcus! Happy Birthday!

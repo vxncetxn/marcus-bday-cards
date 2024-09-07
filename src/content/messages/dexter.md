@@ -2,7 +2,7 @@
 title: Dexter Getting Two Thumbs Up
 image:
   { focalLength: 31, aperture: 4.0, shutterSpeed: 1/125, type: "landscape" }
-order: 9
+order: 7
 ---
 
 Hi Marcus, happy birthday!!
