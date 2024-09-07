@@ -12,7 +12,7 @@ const { index, message } = Astro.props;
 
 <div
   id={`label-${index}`}
-  class={`cursor-pointer [contain:size_layout_style] z-30 absolute left-1/2 top-1/2 h-[6vw] w-[10vw] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${message.data.image.type === "portrait" ? "translate-x-[calc(10vw*1.45+1vw)] translate-y-[calc(13.33vw*1.45-100%)]" : "translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.75vw*1.45-100%)]"}`}
+  class={`cursor-pointer [contain:size_layout_style] z-30 absolute left-1/2 top-1/2 h-[6vw] w-[10vw] transform bg-white p-[0.5vw] transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${message.data.image.type === "portrait" ? "translate-x-[calc(10vw*1.45+1vw)] translate-y-[calc(13.33vw*1.45-100%)]" : "translate-x-[calc(15vw*1.45+1vw)] translate-y-[calc(11.25vw*1.45-100%)]"}`}
 >
   <div
     class="small-content flex h-full w-full flex-col justify-between opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.32,0,0.67,0)]"

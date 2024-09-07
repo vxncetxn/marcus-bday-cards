@@ -29,7 +29,7 @@ if (!images[`/src/assets/img-${message.data.order}.jpg`])
 >
   <Overlay {index} />
   <figure
-    class={`[contain:layout_style] z-10 relative ${message.data.image.type === "portrait" ? "w-[20vw] aspect-[3/4]" : message.data.image.type === "landscape" ? "w-[30vw] aspect-[4/3]" : "w-[50vw]"}`}
+    class={`[contain:layout_style] z-10 relative ${message.data.image.type === "portrait" ? "w-[20vw] h-[26.67vw]" : message.data.image.type === "landscape" ? "w-[30vw] h-[22.5vw]" : "w-[50vw]"}`}
   >
     <Image
       src={images[`/src/assets/img-${message.data.order}.jpg`]()}
